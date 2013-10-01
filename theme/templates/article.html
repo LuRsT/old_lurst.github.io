@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }} : {{ article.title }}{% endblock %}
+{% block content %}
+    <header>
+        <h2>
+            $ cat posts/<a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.slug }}.html</a>
+        </h2>
+        {% if not HIDE_DATE %}
+            <time datetime="{{ article.date.isoformat() }}">
+                {{ article.locale_date }}
+            </time>
+        {% endif %}
+    </header>
+    <article>
+        {{ article.content }}
+    </article>
+{% endblock %}

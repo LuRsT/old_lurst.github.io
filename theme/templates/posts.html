@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content_title %}Posts{% endblock %}
+{% block content %}
+    {% if articles %}
+        <section id="article-list">
+            <h2>All posts</h2>
+            <ol>
+                {% for article in articles %}
+                    <li>
+                        <a
+                            href="{{ SITEURL }}/{{ article.url }}"
+                            title="Permalink to {{ article.title}}"
+                            rel="bookmark"
+                        >
+                            {{ article.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ol>
+        </section>
+        {% endif %}
+    {% else %}
+        No posts found.
+    {% endif %}
+{% endblock content %}
