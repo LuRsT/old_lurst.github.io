@@ -1,5 +1,5 @@
 Title: My ç vim command
-Date: 2012-10-06 22:57
+Date: 2012-10-06
 Author: Gil Goncalves
 
 When I saw this [video](https://www.youtube.com/watch?v=iwVvqwLDsJo) about iPython, I liked the idea of running commands within the editor we're using, and showing the output inside it after running it. Since my editor of choice is vim, I started working on something like that for me. First I've got this one:
