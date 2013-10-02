@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Lumbercoder</title><link href="lurst.github.io/" rel="alternate"></link><link href="lurst.github.io/feeds/articles.atom.xml" rel="self"></link><id>lurst.github.io/</id><updated>2013-10-02T00:00:00+01:00</updated><entry><title>Set AltGr key using xmodmap</title><link href="lurst.github.io/set-altgr-key-using-xmodmap.html" rel="alternate"></link><updated>2013-10-02T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lurst.github.io,2013-10-02:set-altgr-key-using-xmodmap.html</id><summary type="html">&lt;p&gt;Get the complete layout:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xmodmap&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pke&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Xmodmap&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Find the correct keycode that you want to change (e.g. the Left Windows key):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="n"&gt;keycode&lt;/span&gt; &lt;span class="mi"&gt;134&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Super_L&lt;/span&gt; &lt;span class="n"&gt;NoSymbol&lt;/span&gt; &lt;span class="n"&gt;Syper_L&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Update it with this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;keycode&lt;/span&gt; &lt;span class="mi"&gt;134&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ISO_Level3_Shift&lt;/span&gt; &lt;span class="n"&gt;Multi_key&lt;/span&gt; &lt;span class="n"&gt;ISO_Level3_Shift&lt;/span&gt; &lt;span class="n"&gt;Multi_key&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Test it doing:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xmodmap&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Xmodmap&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you just need to change that key, you can simply create a file with only that
+line and be sure to automaticaly run &lt;code&gt;xmodmap ~/.Xmodmap&lt;/code&gt; every time you login.&lt;/p&gt;</summary></entry><entry><title>Find Function</title><link href="lurst.github.io/find-function.html" rel="alternate"></link><updated>2012-10-13T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lurst.github.io,2012-10-13:find-function.html</id><summary type="html">&lt;p&gt;I got this idea the other day, one command that I repeat often is the :g/&lt;search&gt; to know which functions there are within the source file I'm reading, since I mostly code perl and python, I had to use the autocmd to distinguish between the two of them, so this is what I ended up with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;autocmd&lt;/span&gt; &lt;span class="nx"&gt;FileType&lt;/span&gt; &lt;span class="nx"&gt;perl&lt;/span&gt;   &lt;span class="nx"&gt;nn&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;silent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;_F&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;sub&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;CR&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nx"&gt;autocmd&lt;/span&gt; &lt;span class="nx"&gt;FileType&lt;/span&gt; &lt;span class="nx"&gt;python&lt;/span&gt; &lt;span class="nx"&gt;nn&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;silent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;_F&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;def&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;CR&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pretty simple and efective, just type _F in normal mode to get the definition of functions in a 'window' within vim.&lt;/p&gt;</summary></entry><entry><title>My ç vim command</title><link href="lurst.github.io/my-c-vim-command.html" rel="alternate"></link><updated>2012-10-06T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lurst.github.io,2012-10-06:my-c-vim-command.html</id><summary type="html">&lt;p&gt;When I saw this &lt;a href="https://www.youtube.com/watch?v=iwVvqwLDsJo"&gt;video&lt;/a&gt; about iPython, I liked the idea of running commands within the editor we're using, and showing the output inside it after running it. Since my editor of choice is vim, I started working on something like that for me. First I've got this one:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ç&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I used ç since vim isn't using it for anything, what this does is simply upon pressing ç in normal mode, waits for my input into :! and inserts the output in the line bellow the one that I'm editing. But this wasn't what I wanted, I wanted to run the line where my cursor was. For that, I did this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ç&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;cexpr&lt;/span&gt; &lt;span class="nx"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;getline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;cope&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This executes the line where the cursor is, opening a :cope window inside vim with the output from the command, not really what I wanted but a lot closer.&lt;/p&gt;
+&lt;p&gt;I'm going to try and mix the both of them to copy the iPython behaviour.&lt;/p&gt;
+&lt;p&gt;Update: Since I don't have that letter in my keyboard layout anymore, I'm now using upper case 'c' for this purpose.&lt;/p&gt;</summary></entry><entry><title>"Selfspy"</title><link href="lurst.github.io/selfspy.html" rel="alternate"></link><updated>2012-09-30T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lurst.github.io,2012-09-30:selfspy.html</id><summary type="html">&lt;p&gt;The &lt;a href="https://github.com/gurgeh/selfspy"&gt;Selfspy&lt;/a&gt; project looks like a nice way to spy on yourself in order to get a good insight on what exactly are you doing with your time, it's something that if I wasn't so paranoid myself, and if I didn't have so many devices, I'd try it. &lt;/p&gt;
+&lt;p&gt;Maybe when I can live with only one laptop, I'll check it out.&lt;/p&gt;</summary></entry></feed>
