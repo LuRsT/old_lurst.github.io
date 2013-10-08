@@ -88,6 +88,7 @@ li:last-child:before {
 }
 
 hr {
-    color: green;
+    background-color: green;
+    border: 0px;
     margin-top:  20px;
 }
