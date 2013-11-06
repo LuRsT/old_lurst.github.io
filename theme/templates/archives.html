@@ -3,11 +3,10 @@
     <section id="content" class="body">
         <h1>$ ls posts/</h1>
 
-        <dl>
+        <ul>
             {% for article in dates %}
-                <dt>{{ article.slug }}.html</dt>
-                <dd><a href='{{ article.url }}'>{{ article.title }}</a></dd>
+                <li><a href='{{ article.url }}'>{{ article.title }}</a></li>
             {% endfor %}
-        </dl>
+        </ul>
     </section>
 {% endblock %}

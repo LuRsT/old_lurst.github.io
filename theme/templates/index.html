@@ -3,23 +3,10 @@
 {% block content_title %}{% endblock %}
 
 {% block content %}
-    <p>Welcome, read my texts.</p>
-    <p>$ ls posts/</p>
-    {% if articles %}
-        <ul>
-        {% for article in articles %}
-            <li>
-                <a
-                    href="{{ SITEURL }}/{{ article.url }}"
-                    rel="bookmark"
-                    title="Permalink to {{ article.title}}"
-                >
-                    {{ article.title }}
-                </a>
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        No posts found.
-    {% endif %}
+    <p>Welcome, read my texts or stalk me.</p>
+    <ul>
+        <li><a href="https://twitter.com/lurst">Twitter</a></li>
+        <li><a href="https://github.com/lurst">Github</a></li>
+        <li><a href="https://coderwall.com/lurst">Coderwall</a></li>
+    </ul>
 {% endblock content %}
