@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lumbercoder : Using awk as a spreadsheet</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="http://lumbercoder.com/theme/css/main.css" type="text/css" />
+    <link href="http://lumbercoder.com/" type="application/atom+xml" rel="alternate" title="Lumbercoder ATOM Feed" />
+
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!--[if lte IE 7]>
+        <link rel="stylesheet" type="text/css" media="all" href="http://lumbercoder.com/css/ie.css"/>
+        <script src="http://lumbercoder.com/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+    <!--[if lt IE 7]>
+        <link rel="stylesheet" type="text/css" media="all" href="http://lumbercoder.com/css/ie6.css"/><![endif]-->
+</head>
+
+<body>
+    <h1><a href="http://lumbercoder.com/">/home/Lumbercoder</a></h1>
+
+    <header>
+        <h2>
+            $ cat posts/<a href="http://lumbercoder.com/using-awk-as-a-spreadsheet.html" id="page-title">using-awk-as-a-spreadsheet.html</a>
+        </h2>
+            <time datetime="2013-11-06T00:00:00">
+                Wed 06 November 2013
+            </time>
+    </header>
+    <article>
+        <p>So, apparently we don't need no excel to do some simple calculations on the
+console with csv files or text files, so if you like to use the console and
+to do a little bit of calculations on simple text files, read on.</p>
+<p>So for the example, I'll use a veryyyy simple text file with some letters</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cat</span> <span class="n">test</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">c</span>
+<span class="n">a</span>
+<span class="n">a</span>
+<span class="n">a</span>
+<span class="n">a</span>
+<span class="n">a</span>
+<span class="n">b</span>
+<span class="n">b</span>
+<span class="n">b</span>
+<span class="n">b</span>
+<span class="n">b</span>
+<span class="n">c</span>
+<span class="n">b</span>
+<span class="n">c</span>
+<span class="n">c</span>
+</pre></div>
+
+
+<p>As you can see, the letters aren't even sorted, let's <code>sort</code> that out:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cat</span> <span class="n">test</span><span class="p">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">sort</span>
+<span class="n">a</span>
+<span class="n">a</span>
+<span class="n">a</span>
+<span class="n">a</span>
+<span class="n">a</span>
+<span class="n">b</span>
+<span class="n">b</span>
+<span class="n">b</span>
+<span class="n">b</span>
+<span class="n">b</span>
+<span class="n">b</span>
+<span class="n">c</span>
+<span class="n">c</span>
+<span class="n">c</span>
+<span class="n">c</span>
+</pre></div>
+
+
+<p>Ok, so now we have all the letters in order, but how many of them do we have?</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cat</span> <span class="n">test</span><span class="p">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span> <span class="o">-</span><span class="n">c</span>
+  <span class="mi">5</span> <span class="n">a</span>
+  <span class="mi">6</span> <span class="n">b</span>
+  <span class="mi">4</span> <span class="n">c</span>
+</pre></div>
+
+
+<p>As you can see, <code>uniq -c</code> counted each of the letters and provided us with the
+amount of times that each letter appears by their side.</p>
+<p>But this is not enough, we want to know the <code>SUM()</code> of all the letters, and
+while we could do a simple:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cat</span> <span class="n">test</span><span class="p">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">wc</span> <span class="o">-</span><span class="n">l</span>
+<span class="mi">15</span>
+</pre></div>
+
+
+<p>That's not fun at all, and it's only useful if we just wanted the amount of
+rows, but this could be the sum of numbers in a text file, so I'll show how
+to do the same, with awk:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cat</span> <span class="n">test</span><span class="p">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span> <span class="o">-</span><span class="n">c</span> <span class="o">|</span> <span class="n">awk</span> <span class="err">&#39;</span><span class="p">{</span> <span class="n">sum</span> <span class="o">+=</span> <span class="err">$</span><span class="mi">1</span> <span class="p">}</span> <span class="n">END</span> <span class="p">{</span> <span class="n">print</span> <span class="n">sum</span> <span class="p">}</span><span class="err">&#39;</span>
+<span class="mi">15</span>
+</pre></div>
+
+
+<p>So, this needs some explanation, what I'm doing in that line is, for every line
+I'm suming up the variable <code>sum</code> with the first column <code>$1</code> of the line (which
+are the frequency number that <code>uniq -c</code> gives us) and then, with the <code>END</code>
+instruction, I'm printing the variable <code>sum</code> at the end of the processing,
+giving us the sum of all the first columns in that text.</p>
+<p>But now we lost all the other info from the file that we may or may not care
+about, so let's get that again:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cat</span> <span class="n">test</span><span class="p">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span> <span class="o">-</span><span class="n">c</span> <span class="o">|</span> <span class="n">awk</span> <span class="err">&#39;</span><span class="p">{</span> <span class="n">sum</span> <span class="o">+=</span> <span class="err">$</span><span class="mi">1</span><span class="p">;</span> <span class="n">print</span> <span class="err">$</span><span class="mi">1</span> <span class="s">&quot; &quot;</span> <span class="err">$</span><span class="mi">2</span> <span class="p">}</span> <span class="n">END</span> <span class="p">{</span> <span class="n">print</span> <span class="n">sum</span> <span class="p">}</span><span class="err">&#39;</span>
+<span class="mi">5</span> <span class="n">a</span>
+<span class="mi">6</span> <span class="n">b</span>
+<span class="mi">4</span> <span class="n">c</span>
+<span class="mi">15</span>
+</pre></div>
+
+
+<p>This new line has only one new thing, which is the <code>; print $1 " " $2</code> appended
+to the first set of instructions <code>{}</code> which will basically just print the first
+column, plus a space and then the second column, but this is horrible, we know
+that we have two columns separated by a space, but what if there's more to it?
+What if there are 3 columns, or more? Do we print every <code>$n</code> there is? No, we
+do this:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cat</span> <span class="n">test</span><span class="p">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span> <span class="o">-</span><span class="n">c</span> <span class="o">|</span> <span class="n">awk</span> <span class="err">&#39;</span><span class="p">{</span> <span class="n">sum</span> <span class="o">+=</span> <span class="err">$</span><span class="mi">1</span><span class="p">;</span> <span class="n">print</span> <span class="err">$</span><span class="mi">0</span> <span class="p">}</span> <span class="n">END</span> <span class="p">{</span> <span class="n">print</span> <span class="n">sum</span> <span class="p">}</span><span class="err">&#39;</span>
+      <span class="mi">5</span> <span class="n">a</span>
+      <span class="mi">6</span> <span class="n">b</span>
+      <span class="mi">4</span> <span class="n">c</span>
+<span class="mi">15</span>
+</pre></div>
+
+
+<p>Now we're talking, <code>$0</code> prints the whole line, and that's exactly what we get.</p>
+<p>Play with this to get more elaborate spreadsheet commands and throw your
+Excel/Calc to the bin :).</p>
+    </article>
+
+    <footer>
+        <nav>
+            <hr />
+            <h3>$ help</h3>
+            <br />
+            <ul>
+                <li><a href="http://lumbercoder.com/pages/whoami.html">whoami</a></li>
+                <li><a href="http://lumbercoder.com/archives.html">ls posts/</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>
