@@ -1,7 +1,7 @@
 @import url("pygment.css");
 
 body {
-    font-family: 'Courier', fixed-width;
+    font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 14px;
     color: #0f0;
     background: #1a1a1a;
@@ -10,9 +10,13 @@ body {
     max-width: 40em;
 }
 
-h1 { }
+h1 {
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+}
 
-h2 { }
+h2 {
+    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+}
 
 h3 {
     margin: 0;
@@ -23,7 +27,6 @@ h3 {
 h4 { }
 
 time {
-    color: #A0A0A0;
     font-size: 60%;
 }
 
@@ -51,8 +54,8 @@ ol, ul {
 }
 
 body {
-    font-family: 'Courier', fixed-width;
-    font-size: 14px;
+    font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+    font-size: 18px;
     line-height: 1;
     color: #0f0;
     background: #1a1a1a;
