@@ -1,6 +1,7 @@
 @import url("pygment.css");
 
 /* BEGIN ICOMOON */
+
 @font-face {
     font-family: 'icomoon';
     src:url('fonts/icomoon.eot');
@@ -28,10 +29,37 @@
 
 .icon-twitter:before {
     content: "\e600";
+    color: #41b7d8;
 }
 .icon-github:before {
     content: "\e601";
 }
+
+.icon-linkedin:before {
+    content: "\e602";
+    color: #0073b2;
+}
+
+.icon-stackoverflow:before {
+    content: "\e603";
+}
+
+.icon-console:before {
+    content: "\e604";
+}
+
+.icon-stats:before {
+    content: "\e605";
+}
+
+.icon-book:before {
+    content: "\e606";
+}
+
+.icon-bubbles:before {
+    content: "\e607";
+}
+
 /* END ICOMOON */
 
 .container {
