@@ -41,17 +41,17 @@
             <a href="{{ SITEURL }}/">/home/{{ SITENAME }}</a>
         </h1>
 
-        <a class="btn" href="{{ SITEURL }}/archives.html">ls posts/</a>
+        <a class="btn btn-green" href="{{ SITEURL }}/archives.html">ls posts/</a>
         {% for page in PAGES %}
             <a class="btn" href="{{ SITEURL }}/{{ page.url }}">
                 {{ page.title }}
             </a>
         {% endfor %}
         {% if categories|length > 1 %}
-            <a class=="btn" href="{{ SITEURL }}/categories.html">ls categories/</a>
+            <a class=="btn btn-green" href="{{ SITEURL }}/categories.html">ls categories/</a>
         {% endif %}
         {% if tags|length > 1 %}
-            <a class="btn" href="{{ SITEURL }}/tags.html">ls tags/</a>
+            <a class="btn btn-green" href="{{ SITEURL }}/tags.html">ls tags/</a>
         {% endif %}
 
         <hr />
