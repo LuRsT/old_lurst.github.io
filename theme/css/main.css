@@ -47,8 +47,28 @@ pre {
     padding: 10px;
 }
 
+a {
+    color: #7AB317;
+}
+
+a:hover {
+    color: #026F1F;
+    text-decoration: none;
+}
+
 .btn a {
     color: white;
+}
+
+.btn-green {
+    background-color: #7AB317;
+    border-color: #7AB317;
+}
+
+.btn-green:hover,
+a .btn-green:hover {
+    background-color: #026F1F;
+    border-color: #026F1F;
 }
 
 time {
