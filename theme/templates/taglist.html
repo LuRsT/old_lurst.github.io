@@ -1,6 +1,6 @@
 {% if article.tags %}
+    <h2>$ ls tags/<h2>
     <p>
-    <h1>$ ls tags/<h1>
         {% for tag in article.tags %}
             <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
         {% endfor %}
@@ -9,6 +9,6 @@
 
 {% if PDF_PROCESSOR %}
     <p>
-        <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the pdf</a>
+        <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">Get the pdf</a>
     </p>
 {% endif %}

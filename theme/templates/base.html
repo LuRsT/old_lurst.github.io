@@ -47,9 +47,11 @@
                 {{ page.title }}
             </a>
         {% endfor %}
+
         {% if categories|length > 1 %}
             <a class=="btn btn-green" href="{{ SITEURL }}/categories.html">ls categories/</a>
         {% endif %}
+
         {% if tags|length > 1 %}
             <a class="btn btn-green" href="{{ SITEURL }}/tags.html">ls tags/</a>
         {% endif %}

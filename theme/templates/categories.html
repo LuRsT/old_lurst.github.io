@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+
 {% block title %}Categories{% endblock %}
+
 {% block content %}
-    <h1>$ ls categories/</h1>
+    <h2>$ ls categories/</h2>
     <ul>
         {% for category, articles in categories %}
             <li>
