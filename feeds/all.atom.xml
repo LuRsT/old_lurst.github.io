@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Lumbercoder</title><link href="http://lumbercoder.com/" rel="alternate"></link><link href="http://lumbercoder.com/feeds/all.atom.xml" rel="self"></link><id>http://lumbercoder.com/</id><updated>2013-11-06T00:00:00+00:00</updated><entry><title>Using awk as a spreadsheet</title><link href="http://lumbercoder.com/using-awk-as-a-spreadsheet.html" rel="alternate"></link><updated>2013-11-06T00:00:00+00:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2013-11-06:using-awk-as-a-spreadsheet.html</id><summary type="html">&lt;p&gt;So, apparently we don't need no excel to do some simple calculations on the
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Lumbercoder</title><link href="http://lumbercoder.com/" rel="alternate"></link><link href="http://lumbercoder.com/feeds/all.atom.xml" rel="self"></link><id>http://lumbercoder.com/</id><updated>2013-12-28T00:00:00+00:00</updated><entry><title>How to install Manjaro Linux with /home encrypted</title><link href="http://lumbercoder.com/how-to-install-manjaro-linux-with-home-encrypted.html" rel="alternate"></link><updated>2013-12-28T00:00:00+00:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2013-12-28:how-to-install-manjaro-linux-with-home-encrypted.html</id><summary type="html">&lt;p&gt;So, this weekend I decided to upgrade my little Asus Vivobook with my old SSD
+since I want to only use one laptop, and having one laptop that I don't intend
+to use for programming with an SDD and another which I do use for programming
+without doesn't make sense.&lt;/p&gt;
+&lt;p&gt;Having moved all the data around is time consuming enough, but I still had to
+deal with the fact that the laptop uses a slim hard drive and my SSD wasn't very
+slim at all, so I had to remove the SSD casing and plug it it, and it worked
+right away!&lt;/p&gt;
+&lt;p&gt;But I was far from finishing the setup of my machine, I had to install Linux on
+it, and this shouldn't be difficult but I wanted my /home partition to be
+encrypted and that complicated everything...&lt;/p&gt;
+&lt;p&gt;I won't bother you with the details of my many installations until I got it
+right, so here are the instructions:&lt;/p&gt;
+&lt;p&gt;Use the testing installation&lt;/p&gt;</summary></entry><entry><title>How to lock the screen and suspend on i3 (or xmonad, openbox etc...)</title><link href="http://lumbercoder.com/how-to-lock-the-screen-and-suspend-on-i3-or-xmonad-openbox-etc.html" rel="alternate"></link><updated>2013-12-28T00:00:00+00:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2013-12-28:how-to-lock-the-screen-and-suspend-on-i3-or-xmonad-openbox-etc.html</id><summary type="html">&lt;p&gt;If you don't use a fancy graphical Desktop Manager like Xfce4/Gnome/KDE or the other forks,
+sometimes it's hard to do some things, since you have to fiddle with files and scripts to
+do the fancy stuff they do by default.&lt;/p&gt;
+&lt;p&gt;One of those things is suspend on power button press/lid closed/etc..., to do this without
+using a DE, you can use the script located in &lt;code&gt;/etc/acpi/handler.sh/&lt;/code&gt; to do that for you.&lt;/p&gt;
+&lt;p&gt;Depending on your distro you may alredy have some contents there, here is a snippet from mine:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;power&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$2&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt;
+        &lt;span class="n"&gt;PBTN&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;PWRF&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;PowerButton&lt;/span&gt; &lt;span class="n"&gt;pressed&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;ACPI action undefined: $2&amp;quot;&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+    &lt;span class="n"&gt;esac&lt;/span&gt;
+    &lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So in here you can add some commands to do anything you want whenever the power button is pressed,
+here's what I did in mine:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;power&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$2&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt;
+        &lt;span class="n"&gt;PBTN&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;PWRF&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;PowerButton&lt;/span&gt; &lt;span class="n"&gt;pressed&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+            &lt;span class="n"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=:&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt; &lt;span class="n"&gt;su&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;USER&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;i3lock&lt;/span&gt;
+            &lt;span class="n"&gt;pm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;suspend&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;ACPI action undefined: $2&amp;quot;&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+    &lt;span class="n"&gt;esac&lt;/span&gt;
+    &lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now whenever I press the power button, the screen gets locked by i3 and then the laptop is suspended.&lt;/p&gt;
+&lt;p&gt;This of course, as the name of the article shows, can be done when the computer suspends, so this
+will do the trick:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lid&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$3&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt;
+        &lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;LID&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+            &lt;span class="n"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=:&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt; &lt;span class="n"&gt;su&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;USER&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;i3lock&lt;/span&gt;
+            &lt;span class="n"&gt;pm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;suspend&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        &lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;LID&lt;/span&gt; &lt;span class="n"&gt;opened&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+        &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;logger&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;ACPI action undefined: $3&amp;quot;&lt;/span&gt;
+            &lt;span class="p"&gt;;;&lt;/span&gt;
+    &lt;span class="n"&gt;esac&lt;/span&gt;
+    &lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you're using xscreensaver, you just need to change &lt;code&gt;/usr/bin/i3lock&lt;/code&gt; to
+ &lt;code&gt;/usr/bin/xscreensaver-command -l&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Pages where I took this from:&lt;/p&gt;
+&lt;p&gt;https://bbs.archlinux.org/viewtopic.php?id=70364
+https://bbs.archlinux.org/viewtopic.php?id=140932&lt;/p&gt;</summary></entry><entry><title>Using awk as a spreadsheet</title><link href="http://lumbercoder.com/using-awk-as-a-spreadsheet.html" rel="alternate"></link><updated>2013-11-06T00:00:00+00:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2013-11-06:using-awk-as-a-spreadsheet.html</id><summary type="html">&lt;p&gt;So, apparently we don't need no excel to do some simple calculations on the
 console with csv files or text files, so if you like to use the console and
 to do a little bit of calculations on simple text files, read on.&lt;/p&gt;
 &lt;p&gt;So for the example, I'll use a veryyyy simple text file with some letters&lt;/p&gt;

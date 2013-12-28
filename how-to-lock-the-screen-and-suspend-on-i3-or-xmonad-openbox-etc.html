@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <title>Lumbercoder : How to lock the screen and suspend on i3 (or xmonad, openbox etc...)</title>
+
+    <link
+        rel="stylesheet"
+        href="http://lumbercoder.com/theme/css/kraken.css"
+        type="text/css"
+    />
+    <link
+        rel="stylesheet"
+        href="http://lumbercoder.com/theme/css/main.css"
+        type="text/css"
+    />
+    <link
+        href="http://lumbercoder.com/"
+        type="application/atom+xml"
+        rel="alternate"
+        title="Lumbercoder ATOM Feed"
+    />
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <article class="container">
+        <h1>
+            <a href="http://lumbercoder.com/">/home/Lumbercoder</a>
+        </h1>
+
+        <a class="btn btn-green" href="http://lumbercoder.com/archives.html">ls posts/</a>
+            <a class="btn btn-green" href="http://lumbercoder.com/pages/cat-projectsmd.html">
+                cat projects.md
+            </a>
+
+
+
+        <hr />
+
+    <header>
+        <h2>
+            $ cat posts/<a href="http://lumbercoder.com/how-to-lock-the-screen-and-suspend-on-i3-or-xmonad-openbox-etc.html" id="page-title">how-to-lock-the-screen-and-suspend-on-i3-or-xmonad-openbox-etc.html</a>
+        </h2>
+            <time datetime="2013-12-28T00:00:00">
+                Sat 28 December 2013
+            </time>
+    </header>
+    <article>
+        <p>If you don't use a fancy graphical Desktop Manager like Xfce4/Gnome/KDE or the other forks,
+sometimes it's hard to do some things, since you have to fiddle with files and scripts to
+do the fancy stuff they do by default.</p>
+<p>One of those things is suspend on power button press/lid closed/etc..., to do this without
+using a DE, you can use the script located in <code>/etc/acpi/handler.sh/</code> to do that for you.</p>
+<p>Depending on your distro you may alredy have some contents there, here is a snippet from mine:</p>
+<div class="highlight"><pre><span class="n">button</span><span class="o">/</span><span class="n">power</span><span class="p">)</span>
+    <span class="k">case</span> <span class="s">&quot;$2&quot;</span> <span class="n">in</span>
+        <span class="n">PBTN</span><span class="o">|</span><span class="n">PWRF</span><span class="p">)</span>
+            <span class="n">logger</span> <span class="err">&#39;</span><span class="n">PowerButton</span> <span class="n">pressed</span><span class="err">&#39;</span>
+            <span class="p">;;</span>
+        <span class="o">*</span><span class="p">)</span>
+            <span class="n">logger</span> <span class="s">&quot;ACPI action undefined: $2&quot;</span>
+            <span class="p">;;</span>
+    <span class="n">esac</span>
+    <span class="p">;;</span>
+</pre></div>
+
+
+<p>So in here you can add some commands to do anything you want whenever the power button is pressed,
+here's what I did in mine:</p>
+<div class="highlight"><pre><span class="n">button</span><span class="o">/</span><span class="n">power</span><span class="p">)</span>
+    <span class="k">case</span> <span class="s">&quot;$2&quot;</span> <span class="n">in</span>
+        <span class="n">PBTN</span><span class="o">|</span><span class="n">PWRF</span><span class="p">)</span>
+            <span class="n">logger</span> <span class="err">&#39;</span><span class="n">PowerButton</span> <span class="n">pressed</span><span class="err">&#39;</span>
+            <span class="n">DISPLAY</span><span class="o">=:</span><span class="mf">0.0</span> <span class="n">su</span> <span class="err">$</span><span class="n">USER</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">i3lock</span>
+            <span class="n">pm</span><span class="o">-</span><span class="n">suspend</span><span class="p">;</span>
+            <span class="p">;;</span>
+        <span class="o">*</span><span class="p">)</span>
+            <span class="n">logger</span> <span class="s">&quot;ACPI action undefined: $2&quot;</span>
+            <span class="p">;;</span>
+    <span class="n">esac</span>
+    <span class="p">;;</span>
+</pre></div>
+
+
+<p>Now whenever I press the power button, the screen gets locked by i3 and then the laptop is suspended.</p>
+<p>This of course, as the name of the article shows, can be done when the computer suspends, so this
+will do the trick:</p>
+<div class="highlight"><pre><span class="n">button</span><span class="o">/</span><span class="n">lid</span><span class="p">)</span>
+    <span class="k">case</span> <span class="s">&quot;$3&quot;</span> <span class="n">in</span>
+        <span class="n">close</span><span class="p">)</span>
+            <span class="n">logger</span> <span class="err">&#39;</span><span class="n">LID</span> <span class="n">closed</span><span class="err">&#39;</span>
+            <span class="n">DISPLAY</span><span class="o">=:</span><span class="mf">0.0</span> <span class="n">su</span> <span class="err">$</span><span class="n">USER</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">i3lock</span>
+            <span class="n">pm</span><span class="o">-</span><span class="n">suspend</span>
+            <span class="p">;;</span>
+        <span class="n">open</span><span class="p">)</span>
+            <span class="n">logger</span> <span class="err">&#39;</span><span class="n">LID</span> <span class="n">opened</span><span class="err">&#39;</span>
+            <span class="p">;;</span>
+        <span class="o">*</span><span class="p">)</span>
+            <span class="n">logger</span> <span class="s">&quot;ACPI action undefined: $3&quot;</span>
+            <span class="p">;;</span>
+    <span class="n">esac</span>
+    <span class="p">;;</span>
+</pre></div>
+
+
+<p>If you're using xscreensaver, you just need to change <code>/usr/bin/i3lock</code> to
+ <code>/usr/bin/xscreensaver-command -l</code>.</p>
+<p>Pages where I took this from:</p>
+<p>https://bbs.archlinux.org/viewtopic.php?id=70364
+https://bbs.archlinux.org/viewtopic.php?id=140932</p>
+    </article>
+    </article>
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5550586-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+
+    <script src="http://lumbercoder.com/theme/js/kraken.js"></script>
+</body>
+</html>
