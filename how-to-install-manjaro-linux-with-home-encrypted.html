@@ -64,7 +64,27 @@ it, and this shouldn't be difficult but I wanted my /home partition to be
 encrypted and that complicated everything...</p>
 <p>I won't bother you with the details of my many installations until I got it
 right, so here are the instructions:</p>
-<p>Use the testing installation</p>
+<ul>
+<li>Create the partitions you'll need with Gparted;</li>
+<li>Use the testing installation (cli) and setup everything that you need, just
+don't partition anything since you already did it in Gparted.</li>
+<li>After that create the LUKS partition in the /home partition</li>
+<li>Configure your system by putting these HOOKS in <code>mkinitcpio.conf</code> BEFORE
+<code>filesystem</code>:<ul>
+<li><code>encrypt</code></li>
+<li><code>lvm2</code></li>
+</ul>
+</li>
+<li>
+<p>Add this line to <code>/etc/crypttab</code>:</p>
+<p>home /dev/sda3 none luks</p>
+</li>
+</ul>
+<p>If you could not do the last step during the installation it's ok, you can do
+it from the live cd, just change the file in the correct partition that should
+be mounted by manjaro.</p>
+<p>If you failed to put the HOOKS in <code>mkinitcpio.conf</code> (which I did), you'll have
+to do a little <code>chroot</code> magic, which I'll explain in another article...</p>
     </article>
     </article>
 

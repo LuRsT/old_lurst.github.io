@@ -51,12 +51,14 @@
             </time>
     </header>
     <article>
-        <p>If you don't use a fancy graphical Desktop Manager like Xfce4/Gnome/KDE or the other forks,
-sometimes it's hard to do some things, since you have to fiddle with files and scripts to
-do the fancy stuff they do by default.</p>
-<p>One of those things is suspend on power button press/lid closed/etc..., to do this without
-using a DE, you can use the script located in <code>/etc/acpi/handler.sh/</code> to do that for you.</p>
-<p>Depending on your distro you may alredy have some contents there, here is a snippet from mine:</p>
+        <p>If you don't use a fancy graphical Desktop Manager like Xfce4/Gnome/KDE or the
+other forks, sometimes it's hard to do some things, since you have to fiddle
+with files and scripts to do the fancy stuff they do by default.</p>
+<p>One of those things is suspend on power button press/lid closed/etc..., to do
+this without using a DE, you can use the script located in
+<code>/etc/acpi/handler.sh/</code> to do that for you.</p>
+<p>Depending on your distro you may alredy have some contents there, here is a
+snippet from mine:</p>
 <div class="highlight"><pre><span class="n">button</span><span class="o">/</span><span class="n">power</span><span class="p">)</span>
     <span class="k">case</span> <span class="s">&quot;$2&quot;</span> <span class="n">in</span>
         <span class="n">PBTN</span><span class="o">|</span><span class="n">PWRF</span><span class="p">)</span>
@@ -70,8 +72,8 @@ using a DE, you can use the script located in <code>/etc/acpi/handler.sh/</code>
 </pre></div>
 
 
-<p>So in here you can add some commands to do anything you want whenever the power button is pressed,
-here's what I did in mine:</p>
+<p>So in here you can add some commands to do anything you want whenever the power
+button is pressed, here's what I did in mine:</p>
 <div class="highlight"><pre><span class="n">button</span><span class="o">/</span><span class="n">power</span><span class="p">)</span>
     <span class="k">case</span> <span class="s">&quot;$2&quot;</span> <span class="n">in</span>
         <span class="n">PBTN</span><span class="o">|</span><span class="n">PWRF</span><span class="p">)</span>
@@ -87,9 +89,10 @@ here's what I did in mine:</p>
 </pre></div>
 
 
-<p>Now whenever I press the power button, the screen gets locked by i3 and then the laptop is suspended.</p>
-<p>This of course, as the name of the article shows, can be done when the computer suspends, so this
-will do the trick:</p>
+<p>Now whenever I press the power button, the screen gets locked by i3 and then the
+laptop is suspended.</p>
+<p>This of course, as the name of the article shows, can be done when the computer
+suspends, so this will do the trick:</p>
 <div class="highlight"><pre><span class="n">button</span><span class="o">/</span><span class="n">lid</span><span class="p">)</span>
     <span class="k">case</span> <span class="s">&quot;$3&quot;</span> <span class="n">in</span>
         <span class="n">close</span><span class="p">)</span>
@@ -111,8 +114,8 @@ will do the trick:</p>
 <p>If you're using xscreensaver, you just need to change <code>/usr/bin/i3lock</code> to
  <code>/usr/bin/xscreensaver-command -l</code>.</p>
 <p>Pages where I took this from:</p>
-<p>https://bbs.archlinux.org/viewtopic.php?id=70364
-https://bbs.archlinux.org/viewtopic.php?id=140932</p>
+<p><a href="https://bbs.archlinux.org/viewtopic.php?id=70364">https://bbs.archlinux.org/viewtopic.php?id=70364</a></p>
+<p><a href="https://bbs.archlinux.org/viewtopic.php?id=140932">https://bbs.archlinux.org/viewtopic.php?id=140932</a></p>
     </article>
     </article>
 
