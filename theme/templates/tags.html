@@ -3,7 +3,12 @@
 {% block content %}
     <ul>
         {% for tag, articles in tags %}
-            <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+            <li>
+                <i class="icon-{{ tag }}"></i>
+                <a href="{{ SITEURL }}/{{ tag.url }}">
+                    {{ tag }}
+                </a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
