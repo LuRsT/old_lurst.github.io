@@ -51,13 +51,17 @@
             </time>
     </header>
     <article>
-        <p>I got this idea the other day, one command that I repeat often is the :g/<search> to know which functions there are within the source file I'm reading, since I mostly code perl and python, I had to use the autocmd to distinguish between the two of them, so this is what I ended up with:</p>
+        <p>I got this idea the other day, one command that I repeat often is the
+<code>:g/&lt;search&gt;</code> to know which functions there are within the source file I'm
+reading, since I mostly code perl and python, I had to use the autocmd to
+distinguish between the two of them, so this is what I ended up with:</p>
 <div class="highlight"><pre><span class="nx">autocmd</span> <span class="nx">FileType</span> <span class="nx">perl</span>   <span class="nx">nn</span> <span class="o">&lt;</span><span class="nx">silent</span><span class="o">&gt;</span> <span class="nx">_F</span> <span class="p">:</span><span class="nx">g</span><span class="p">/</span><span class="nb">sub</span><span class="o">&lt;</span><span class="nx">CR</span><span class="o">&gt;</span>
 <span class="nx">autocmd</span> <span class="nx">FileType</span> <span class="nx">python</span> <span class="nx">nn</span> <span class="o">&lt;</span><span class="nx">silent</span><span class="o">&gt;</span> <span class="nx">_F</span> <span class="p">:</span><span class="nx">g</span><span class="p">/</span><span class="nx">def</span><span class="o">&lt;</span><span class="nx">CR</span><span class="o">&gt;</span>
 </pre></div>
 
 
-<p>Pretty simple and efective, just type _F in normal mode to get the definition of functions in a 'window' within vim.</p>
+<p>Pretty simple and efective, just type _F in normal mode to get the definition
+of functions in a 'window' within vim.</p>
     </article>
     </article>
 

@@ -216,7 +216,7 @@ Excel/Calc to the bin :).&lt;/p&gt;</summary></entry><entry><title>Set AltGr key
 
 
 &lt;p&gt;If you just need to change that key, you can simply create a file with only that
-line and be sure to automaticaly run &lt;code&gt;xmodmap ~/.Xmodmap&lt;/code&gt; every time you login.&lt;/p&gt;</summary></entry><entry><title>How to fix problem with wireless mouse disconnecting after suspend</title><link href="http://lumbercoder.com/how-to-fix-problem-with-wireless-mouse-disconnecting-after-suspend.html" rel="alternate"></link><updated>2013-01-11T00:00:00+00:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2013-01-11:how-to-fix-problem-with-wireless-mouse-disconnecting-after-suspend.html</id><summary type="html">&lt;p&gt;I have had this problem for quite some time, where if I was using a wireless
+line and be sure to automaticaly run &lt;code&gt;xmodmap ~/.Xmodmap&lt;/code&gt; every time you login.&lt;/p&gt;</summary></entry><entry><title>How to fix problem with wireless mouse disconnecting after suspend</title><link href="http://lumbercoder.com/how-to-fix-problem-with-wireless-mouse-disconnecting-after-suspend.html" rel="alternate"></link><updated>2013-01-11T00:00:00+00:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2013-01-11:how-to-fix-problem-with-wireless-mouse-disconnecting-after-suspend.html</id><summary type="html">&lt;p&gt;I've had this problem for quite some time, where if I was using a wireless
 mouse and I suspended my computer, afterwards, the mouse would disconnect
 every 10 seconds and I had to shake it a bit to wake it up, so this got quite
 annoying now that I'm using it more and more, to the point where I managed to
@@ -228,30 +228,46 @@ setted it to &lt;code&gt;no&lt;/code&gt;:&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;These are the line to change:&lt;/p&gt;
+&lt;p&gt;This is the line you need to change:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Enable USB autosuspend feature?&lt;/span&gt;
 &lt;span class="cp"&gt;# Set to 0 to disable&lt;/span&gt;
 &lt;span class="n"&gt;CONTROL_USB_AUTOSUSPEND&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Hope this helps someone else.&lt;/p&gt;</summary></entry><entry><title>Find Function</title><link href="http://lumbercoder.com/find-function.html" rel="alternate"></link><updated>2012-10-13T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2012-10-13:find-function.html</id><summary type="html">&lt;p&gt;I got this idea the other day, one command that I repeat often is the :g/&lt;search&gt; to know which functions there are within the source file I'm reading, since I mostly code perl and python, I had to use the autocmd to distinguish between the two of them, so this is what I ended up with:&lt;/p&gt;
+&lt;p&gt;Hope this helps someone else.&lt;/p&gt;</summary></entry><entry><title>Find Function</title><link href="http://lumbercoder.com/find-function.html" rel="alternate"></link><updated>2012-10-13T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2012-10-13:find-function.html</id><summary type="html">&lt;p&gt;I got this idea the other day, one command that I repeat often is the
+&lt;code&gt;:g/&amp;lt;search&amp;gt;&lt;/code&gt; to know which functions there are within the source file I'm
+reading, since I mostly code perl and python, I had to use the autocmd to
+distinguish between the two of them, so this is what I ended up with:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;autocmd&lt;/span&gt; &lt;span class="nx"&gt;FileType&lt;/span&gt; &lt;span class="nx"&gt;perl&lt;/span&gt;   &lt;span class="nx"&gt;nn&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;silent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;_F&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;sub&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;CR&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="nx"&gt;autocmd&lt;/span&gt; &lt;span class="nx"&gt;FileType&lt;/span&gt; &lt;span class="nx"&gt;python&lt;/span&gt; &lt;span class="nx"&gt;nn&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;silent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;_F&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;g&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;def&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;CR&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Pretty simple and efective, just type _F in normal mode to get the definition of functions in a 'window' within vim.&lt;/p&gt;</summary></entry><entry><title>My ç vim command</title><link href="http://lumbercoder.com/my-c-vim-command.html" rel="alternate"></link><updated>2012-10-06T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2012-10-06:my-c-vim-command.html</id><summary type="html">&lt;p&gt;When I saw this &lt;a href="https://www.youtube.com/watch?v=iwVvqwLDsJo"&gt;video&lt;/a&gt; about iPython, I liked the idea of running commands within the editor we're using, and showing the output inside it after running it. Since my editor of choice is vim, I started working on something like that for me. First I've got this one:&lt;/p&gt;
+&lt;p&gt;Pretty simple and efective, just type _F in normal mode to get the definition
+of functions in a 'window' within vim.&lt;/p&gt;</summary></entry><entry><title>My ç vim command</title><link href="http://lumbercoder.com/my-c-vim-command.html" rel="alternate"></link><updated>2012-10-06T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2012-10-06:my-c-vim-command.html</id><summary type="html">&lt;p&gt;When I saw this &lt;a href="https://www.youtube.com/watch?v=iwVvqwLDsJo"&gt;video&lt;/a&gt; about
+iPython, I liked the idea of running commands within the editor we're using,
+and showing the output inside it after running it. Since my editor of choice
+is vim, I started working on something like that for me. First I've got this
+one:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ç&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;I used ç since vim isn't using it for anything, what this does is simply upon pressing ç in normal mode, waits for my input into :! and inserts the output in the line bellow the one that I'm editing. But this wasn't what I wanted, I wanted to run the line where my cursor was. For that, I did this:&lt;/p&gt;
+&lt;p&gt;I used ç since vim isn't using it for anything, what this does is simply upon
+pressing ç in normal mode, waits for my input into :! and inserts the output in
+the line bellow the one that I'm editing. But this wasn't what I wanted, I
+wanted to run the line where my cursor was. For that, I did this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ç&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;cexpr&lt;/span&gt; &lt;span class="nx"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;getline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;cope&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This executes the line where the cursor is, opening a :cope window inside vim with the output from the command, not really what I wanted but a lot closer.&lt;/p&gt;
+&lt;p&gt;This executes the line where the cursor is, opening a :cope window inside vim
+with the output from the command, not really what I wanted but a lot closer.&lt;/p&gt;
 &lt;p&gt;I'm going to try and mix the both of them to copy the iPython behaviour.&lt;/p&gt;
-&lt;p&gt;Update: Since I don't have that letter in my keyboard layout anymore, I'm now using upper case 'c' for this purpose.&lt;/p&gt;</summary></entry><entry><title>"Selfspy"</title><link href="http://lumbercoder.com/selfspy.html" rel="alternate"></link><updated>2012-09-30T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2012-09-30:selfspy.html</id><summary type="html">&lt;p&gt;The &lt;a href="https://github.com/gurgeh/selfspy"&gt;Selfspy&lt;/a&gt; project looks like a nice way to spy on yourself in order to get a good insight on what exactly are you doing with your time, it's something that if I wasn't so paranoid myself, and if I didn't have so many devices, I'd try it. &lt;/p&gt;
-&lt;p&gt;Maybe when I can live with only one laptop, I'll check it out.&lt;/p&gt;</summary></entry></feed>
+&lt;p&gt;Update: Since I don't have that letter in my keyboard layout anymore, I'm now
+using upper case 'c' for this purpose.&lt;/p&gt;</summary></entry><entry><title>"Selfspy"</title><link href="http://lumbercoder.com/selfspy.html" rel="alternate"></link><updated>2012-09-30T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2012-09-30:selfspy.html</id><summary type="html">&lt;p&gt;The &lt;a href="https://github.com/gurgeh/selfspy"&gt;Selfspy&lt;/a&gt; project looks like a nice way
+to spy on yourself in order to get a good insight on what exactly are you doing
+with your time, it's something that if I wasn't so paranoid myself, and if I
+didn't have so many devices, I'd try it.&lt;/p&gt;
+&lt;p&gt;Maybe once I can live with only one laptop, I'll check it out.&lt;/p&gt;</summary></entry></feed>

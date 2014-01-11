@@ -51,19 +51,28 @@
             </time>
     </header>
     <article>
-        <p>When I saw this <a href="https://www.youtube.com/watch?v=iwVvqwLDsJo">video</a> about iPython, I liked the idea of running commands within the editor we're using, and showing the output inside it after running it. Since my editor of choice is vim, I started working on something like that for me. First I've got this one:</p>
+        <p>When I saw this <a href="https://www.youtube.com/watch?v=iwVvqwLDsJo">video</a> about
+iPython, I liked the idea of running commands within the editor we're using,
+and showing the output inside it after running it. Since my editor of choice
+is vim, I started working on something like that for me. First I've got this
+one:</p>
 <div class="highlight"><pre><span class="n">map</span> <span class="err">ç</span> <span class="o">:</span><span class="n">read</span> <span class="o">!</span>
 </pre></div>
 
 
-<p>I used ç since vim isn't using it for anything, what this does is simply upon pressing ç in normal mode, waits for my input into :! and inserts the output in the line bellow the one that I'm editing. But this wasn't what I wanted, I wanted to run the line where my cursor was. For that, I did this:</p>
+<p>I used ç since vim isn't using it for anything, what this does is simply upon
+pressing ç in normal mode, waits for my input into :! and inserts the output in
+the line bellow the one that I'm editing. But this wasn't what I wanted, I
+wanted to run the line where my cursor was. For that, I did this:</p>
 <div class="highlight"><pre><span class="kt">map</span> <span class="err">ç</span> <span class="p">:</span><span class="nx">cexpr</span> <span class="nx">system</span><span class="p">(</span><span class="nx">getline</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span><span class="p">:</span><span class="nx">cope</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
 </pre></div>
 
 
-<p>This executes the line where the cursor is, opening a :cope window inside vim with the output from the command, not really what I wanted but a lot closer.</p>
+<p>This executes the line where the cursor is, opening a :cope window inside vim
+with the output from the command, not really what I wanted but a lot closer.</p>
 <p>I'm going to try and mix the both of them to copy the iPython behaviour.</p>
-<p>Update: Since I don't have that letter in my keyboard layout anymore, I'm now using upper case 'c' for this purpose.</p>
+<p>Update: Since I don't have that letter in my keyboard layout anymore, I'm now
+using upper case 'c' for this purpose.</p>
     </article>
     </article>
 
