@@ -1,5 +1,5 @@
 Title: How to fix problem with wireless mouse disconnecting after suspend
-Date: 2012-10-13
+Date: 2013-01-11
 Author: Gil Goncalves
 
 
