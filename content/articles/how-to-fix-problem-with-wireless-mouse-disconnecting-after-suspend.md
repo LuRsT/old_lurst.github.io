@@ -3,7 +3,7 @@ Date: 2013-01-11
 Author: Gil Goncalves
 
 
-I have had this problem for quite some time, where if I was using a wireless
+I've had this problem for quite some time, where if I was using a wireless
 mouse and I suspended my computer, afterwards, the mouse would disconnect
 every 10 seconds and I had to shake it a bit to wake it up, so this got quite
 annoying now that I'm using it more and more, to the point where I managed to
@@ -15,7 +15,7 @@ setted it to `no`:
 
     sudo vim /etc/laptop-mode/conf.d/usb-autosuspend.conf
 
-These are the line to change:
+This is the line you need to change:
 
     # Enable USB autosuspend feature?
     # Set to 0 to disable

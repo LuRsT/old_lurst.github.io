@@ -20,3 +20,4 @@ Test it by doing:
 
 If you just need to change that key, you can simply create a file with only that
 line and be sure to automaticaly run `xmodmap ~/.Xmodmap` every time you login.
+

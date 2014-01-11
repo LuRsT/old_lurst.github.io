@@ -99,3 +99,4 @@ Now we're talking, `$0` prints the whole line, and that's exactly what we get.
 
 Play with this to get more elaborate spreadsheet commands and throw your
 Excel/Calc to the bin :).
+

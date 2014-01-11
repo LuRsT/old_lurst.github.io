@@ -39,3 +39,4 @@ be mounted by manjaro.
 
 If you failed to put the HOOKS in `mkinitcpio.conf` (which I did), you'll have
 to do a little `chroot` magic, which I'll explain in another article...
+
