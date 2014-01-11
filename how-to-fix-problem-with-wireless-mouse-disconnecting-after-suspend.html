@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-    <title>Lumbercoder : Find Function</title>
+    <title>Lumbercoder : How to fix problem with wireless mouse disconnecting after suspend</title>
 
     <link
         rel="stylesheet"
@@ -44,20 +44,33 @@
 
     <header>
         <h2>
-            $ cat posts/<a href="http://lumbercoder.com/find-function.html" id="page-title">find-function.html</a>
+            $ cat posts/<a href="http://lumbercoder.com/how-to-fix-problem-with-wireless-mouse-disconnecting-after-suspend.html" id="page-title">how-to-fix-problem-with-wireless-mouse-disconnecting-after-suspend.html</a>
         </h2>
             <time datetime="2012-10-13T00:00:00">
                 Sat 13 October 2012
             </time>
     </header>
     <article>
-        <p>I got this idea the other day, one command that I repeat often is the :g/<search> to know which functions there are within the source file I'm reading, since I mostly code perl and python, I had to use the autocmd to distinguish between the two of them, so this is what I ended up with:</p>
-<div class="highlight"><pre><span class="nx">autocmd</span> <span class="nx">FileType</span> <span class="nx">perl</span>   <span class="nx">nn</span> <span class="o">&lt;</span><span class="nx">silent</span><span class="o">&gt;</span> <span class="nx">_F</span> <span class="p">:</span><span class="nx">g</span><span class="p">/</span><span class="nb">sub</span><span class="o">&lt;</span><span class="nx">CR</span><span class="o">&gt;</span>
-<span class="nx">autocmd</span> <span class="nx">FileType</span> <span class="nx">python</span> <span class="nx">nn</span> <span class="o">&lt;</span><span class="nx">silent</span><span class="o">&gt;</span> <span class="nx">_F</span> <span class="p">:</span><span class="nx">g</span><span class="p">/</span><span class="nx">def</span><span class="o">&lt;</span><span class="nx">CR</span><span class="o">&gt;</span>
+        <p>I have had this problem for quite some time, where if I was using a wireless
+mouse and I suspended my computer, afterwards, the mouse would disconnect
+every 10 seconds and I had to shake it a bit to wake it up, so this got quite
+annoying now that I'm using it more and more, to the point where I managed to
+finally fix it.</p>
+<p>Turns out, laptop-mode has an USB autosuspend feature, so the problem is that
+by default, at least in my Linux distro (Manjaro) it is <code>auto</code>, so I just
+setted it to <code>no</code>:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">laptop</span><span class="o">-</span><span class="n">mode</span><span class="o">/</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">usb</span><span class="o">-</span><span class="n">autosuspend</span><span class="p">.</span><span class="n">conf</span>
 </pre></div>
 
 
-<p>Pretty simple and efective, just type _F in normal mode to get the definition of functions in a 'window' within vim.</p>
+<p>These are the line to change:</p>
+<div class="highlight"><pre><span class="cp"># Enable USB autosuspend feature?</span>
+<span class="cp"># Set to 0 to disable</span>
+<span class="n">CONTROL_USB_AUTOSUSPEND</span><span class="o">=</span><span class="s">&quot;no&quot;</span>
+</pre></div>
+
+
+<p>Hope this helps someone else.</p>
     </article>
     </article>
 

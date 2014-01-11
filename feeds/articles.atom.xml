@@ -222,7 +222,26 @@ line and be sure to automaticaly run &lt;code&gt;xmodmap ~/.Xmodmap&lt;/code&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Pretty simple and efective, just type _F in normal mode to get the definition of functions in a 'window' within vim.&lt;/p&gt;</summary></entry><entry><title>My ç vim command</title><link href="http://lumbercoder.com/my-c-vim-command.html" rel="alternate"></link><updated>2012-10-06T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2012-10-06:my-c-vim-command.html</id><summary type="html">&lt;p&gt;When I saw this &lt;a href="https://www.youtube.com/watch?v=iwVvqwLDsJo"&gt;video&lt;/a&gt; about iPython, I liked the idea of running commands within the editor we're using, and showing the output inside it after running it. Since my editor of choice is vim, I started working on something like that for me. First I've got this one:&lt;/p&gt;
+&lt;p&gt;Pretty simple and efective, just type _F in normal mode to get the definition of functions in a 'window' within vim.&lt;/p&gt;</summary></entry><entry><title>How to fix problem with wireless mouse disconnecting after suspend</title><link href="http://lumbercoder.com/how-to-fix-problem-with-wireless-mouse-disconnecting-after-suspend.html" rel="alternate"></link><updated>2012-10-13T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2012-10-13:how-to-fix-problem-with-wireless-mouse-disconnecting-after-suspend.html</id><summary type="html">&lt;p&gt;I have had this problem for quite some time, where if I was using a wireless
+mouse and I suspended my computer, afterwards, the mouse would disconnect
+every 10 seconds and I had to shake it a bit to wake it up, so this got quite
+annoying now that I'm using it more and more, to the point where I managed to
+finally fix it.&lt;/p&gt;
+&lt;p&gt;Turns out, laptop-mode has an USB autosuspend feature, so the problem is that
+by default, at least in my Linux distro (Manjaro) it is &lt;code&gt;auto&lt;/code&gt;, so I just
+setted it to &lt;code&gt;no&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;laptop&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usb&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;autosuspend&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;These are the line to change:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# Enable USB autosuspend feature?&lt;/span&gt;
+&lt;span class="cp"&gt;# Set to 0 to disable&lt;/span&gt;
+&lt;span class="n"&gt;CONTROL_USB_AUTOSUSPEND&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Hope this helps someone else.&lt;/p&gt;</summary></entry><entry><title>My ç vim command</title><link href="http://lumbercoder.com/my-c-vim-command.html" rel="alternate"></link><updated>2012-10-06T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2012-10-06:my-c-vim-command.html</id><summary type="html">&lt;p&gt;When I saw this &lt;a href="https://www.youtube.com/watch?v=iwVvqwLDsJo"&gt;video&lt;/a&gt; about iPython, I liked the idea of running commands within the editor we're using, and showing the output inside it after running it. Since my editor of choice is vim, I started working on something like that for me. First I've got this one:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ç&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
