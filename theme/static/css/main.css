@@ -103,6 +103,12 @@ time {
     font-size: 60%;
 }
 
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 /*
 body {
     font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif;
@@ -142,24 +148,12 @@ a:hover {
     text-decoration: underline;
 }
 
-ol, ul {
-    list-style: none;
-    font: fixed;
-    font-size: 0.8em;
-}
-
 body {
     font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
     font-size: 18px;
     line-height: 1;
     color: #0f0;
     background: #1a1a1a;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
 }
 
 li {
