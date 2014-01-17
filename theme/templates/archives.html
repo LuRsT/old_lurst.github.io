@@ -6,7 +6,13 @@
 
         <ul>
             {% for article in dates %}
-                <li><a href='{{ article.url }}'>{{ article.title }}</a></li>
+                <li>
+                    {{ article.date.strftime('%d/%m/%Y') }}
+                    -
+                    <a href='{{ article.url }}'>
+                        {{ article.title }}
+                    </a>
+                </li>
             {% endfor %}
         </ul>
     </section>
