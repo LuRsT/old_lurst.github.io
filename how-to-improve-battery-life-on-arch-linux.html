@@ -74,7 +74,7 @@ or Manjaro Linux with <code>systemd</code> installed.</p>
 of what to tune and to the right, a command to do it, you should use your
 common sense and google abilities to pick the things that you want to improve.</p>
 <p>Move the ones you want to a file somewhere in the system, I picked
-<code>/usr/local/bin/startup.sh</code> but as long as root can control it, you can put it,
+<code>/usr/local/bin/powertop_tuning.sh</code> but as long as root can control it, you can put it,
 whatever you want.</p>
 <p>Your file now may look like this:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -92,14 +92,14 @@ whatever you want.</p>
 </td></tr></table>
 
 <p>I know mine does, we need to make it executable:</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">startup</span><span class="p">.</span><span class="n">sh</span>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">powertop_tuning</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
 
 
 <p>Bam! Done! No, not really, to test it, you should execute it and then do the
 report again to check if the tuning tab doesnt have the issues anymore.</p>
 <h4>Optional</h4>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">startup</span><span class="p">.</span><span class="n">sh</span>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">powertop_tuning</span><span class="p">.</span><span class="n">sh</span>
 <span class="n">sudo</span> <span class="n">powertop</span> <span class="o">-</span><span class="n">html</span>
 
 <span class="p">(</span><span class="n">Check</span> <span class="n">the</span> <span class="n">tab</span><span class="p">)</span>
@@ -117,13 +117,13 @@ create a service, calm down, it's not that hard. Reminder: This is for <code>sys
 <p>And put this inside:</p>
 <div class="highlight"><pre><span class="k">[Unit]</span>
 <span class="na">Description</span><span class="o">=</span><span class="s">&quot;PowerTop Tuning config&quot;</span>
-<span class="na">ConditionPathExists</span><span class="o">=</span><span class="s">/usr/local/bin/startup.sh</span>
+<span class="na">ConditionPathExists</span><span class="o">=</span><span class="s">/usr/local/bin/powertop_tuning.sh</span>
 
 <span class="k">[Service]</span>
 <span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
 <span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">yes</span>
 <span class="na">KillMode</span><span class="o">=</span><span class="s">none</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/startup.sh</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/powertop_tuning.sh</span>
 <span class="na">ExecStop</span><span class="o">=</span><span class="s">exit</span>
 
 <span class="k">[Install]</span>
