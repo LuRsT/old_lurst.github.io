@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <title>Lumbercoder : How to improve battery life on Arch linux</title>
+
+    <link
+        rel="stylesheet"
+        href="http://lumbercoder.com/theme/css/kraken.css"
+        type="text/css"
+    />
+    <link
+        rel="stylesheet"
+        href="http://lumbercoder.com/theme/css/main.css"
+        type="text/css"
+    />
+    <link
+        href="http://lumbercoder.com/"
+        type="application/atom+xml"
+        rel="alternate"
+        title="Lumbercoder ATOM Feed"
+    />
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <article class="container">
+        <h1>
+            <a href="http://lumbercoder.com/">/home/Lumbercoder</a>
+        </h1>
+
+        <a class="btn btn-green" href="http://lumbercoder.com/">cd $HOME</a>
+        <a class="btn btn-green" href="http://lumbercoder.com/archives.html">ls posts/</a>
+
+
+            <a class="btn btn-green" href="http://lumbercoder.com/pages/cat-projectsmd.html">
+                cat projects.md
+            </a>
+
+        <hr />
+
+    <header>
+        <h2>
+            $ cat posts/<a href="http://lumbercoder.com/how-to-improve-battery-life-on-arch-linux.html" id="page-title">how-to-improve-battery-life-on-arch-linux.html</a>
+        </h2>
+            <time datetime="2014-03-02T00:00:00">
+                Sun 02 March 2014
+            </time>
+    </header>
+    <article>
+        <p>Today I decided to make my laptop's battery last a bit more, so I looked for a
+way to do it, since I had to fiddle a bit a look multiple sources, I decided to
+create a blog post to rule them all.</p>
+<p>So, this will be the instructions on how to improve the battery life on an Arch
+or Manjaro Linux with <code>systemd</code> installed.</p>
+<h3>What needs tuning?</h3>
+<p>First, you need to install powertop:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">powertop</span>
+<span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">ethtool</span> <span class="err">#</span> <span class="n">This</span> <span class="n">may</span> <span class="n">be</span> <span class="n">required</span> <span class="k">for</span> <span class="n">the</span> <span class="n">optimization</span> <span class="n">process</span>
+</pre></div>
+
+
+<p>Next, use it to create a report with it, like so:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">powertop</span> <span class="o">-</span><span class="n">html</span>
+</pre></div>
+
+
+<p>You will end up with a file called <code>tml.html</code> in your $HOME directory.</p>
+<p>Now, open it and go to the "Tuning" tab, in there you will find a description
+of what to tune and to the right, a command to do it, you should use your
+common sense and google abilities to pick the things that you want to improve.</p>
+<p>Move the ones you want to a file somewhere in the system, I picked
+<code>/usr/local/bin/startup.sh</code> but as long as root can control it, you can put it,
+whatever you want.</p>
+<p>Your file now may look like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+
+<span class="c"># NMI watchdog should be turned off</span>
+<span class="nb">echo</span> <span class="s1">&#39;0&#39;</span> &gt; <span class="s1">&#39;/proc/sys/kernel/nmi_watchdog&#39;</span>;
+
+<span class="c"># Other stuff</span>
+</pre></div>
+</td></tr></table>
+
+<p>I know mine does, we need to make it executable:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">startup</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+
+
+<p>Bam! Done! No, not really, to test it, you should execute it and then do the
+report again to check if the tuning tab doesnt have the issues anymore.</p>
+<h4>Optional</h4>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">startup</span><span class="p">.</span><span class="n">sh</span>
+<span class="n">sudo</span> <span class="n">powertop</span> <span class="o">-</span><span class="n">html</span>
+
+<span class="p">(</span><span class="n">Check</span> <span class="n">the</span> <span class="n">tab</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>Create the service</h3>
+<p>Now, to make this script executable everytime you turn your pc on, we need to
+create a service, calm down, it's not that hard. Reminder: This is for <code>systemd</code></p>
+<p>Now open/create this file (you can pick a different name if you like):</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="err">$</span><span class="n">EDITOR</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">powertop_tuning</span><span class="p">.</span><span class="n">service</span>
+</pre></div>
+
+
+<p>And put this inside:</p>
+<div class="highlight"><pre><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">&quot;PowerTop Tuning config&quot;</span>
+<span class="na">ConditionPathExists</span><span class="o">=</span><span class="s">/usr/local/bin/startup.sh</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
+<span class="na">RemainAfterExit</span><span class="o">=</span><span class="s">yes</span>
+<span class="na">KillMode</span><span class="o">=</span><span class="s">none</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/startup.sh</span>
+<span class="na">ExecStop</span><span class="o">=</span><span class="s">exit</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</pre></div>
+
+
+<p>Wow, now you created your own service, congratulate yourself! Now for the
+boring part, testing it:</p>
+<h4>Optional</h4>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">start</span> <span class="n">powertop_tuning</span><span class="p">.</span><span class="n">service</span>
+<span class="n">sudo</span> <span class="n">powertop</span> <span class="o">-</span><span class="n">html</span>
+
+<span class="p">(</span><span class="n">Check</span> <span class="n">the</span> <span class="n">tab</span><span class="p">)</span>
+</pre></div>
+
+
+<p>If everything looks ok, you just need one more last step...</p>
+<h3>Start it automatically</h3>
+<p>Finally run this:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">powertop_tuning</span><span class="p">.</span><span class="n">service</span>
+</pre></div>
+
+
+<p>You are now the proud (hopefully) owner of a laptop with improved battery life :)</p>
+    </article>
+    </article>
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5550586-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+
+    <script src="http://lumbercoder.com/theme/js/kraken.js"></script>
+</body>
+</html>
