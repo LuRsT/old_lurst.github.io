@@ -27,7 +27,7 @@ of what to tune and to the right, a command to do it, you should use your
 common sense and google abilities to pick the things that you want to improve.
 
 Move the ones you want to a file somewhere in the system, I picked
-`/usr/local/bin/startup.sh` but as long as root can control it, you can put it,
+`/usr/local/bin/powertop_tuning.sh` but as long as root can control it, you can put it,
 whatever you want.
 
 Your file now may look like this:
@@ -41,14 +41,14 @@ Your file now may look like this:
 
 I know mine does, we need to make it executable:
 
-    sudo chmod +x /usr/local/bin/startup.sh
+    sudo chmod +x /usr/local/bin/powertop_tuning.sh
 
 Bam! Done! No, not really, to test it, you should execute it and then do the
 report again to check if the tuning tab doesnt have the issues anymore.
 
 #### Optional
 
-    sudo /usr/local/bin/startup.sh
+    sudo /usr/local/bin/powertop_tuning.sh
     sudo powertop -html
 
     (Check the tab)
@@ -66,13 +66,13 @@ And put this inside:
 
     [Unit]
     Description="PowerTop Tuning config"
-    ConditionPathExists=/usr/local/bin/startup.sh
+    ConditionPathExists=/usr/local/bin/powertop_tuning.sh
 
     [Service]
     Type=oneshot
     RemainAfterExit=yes
     KillMode=none
-    ExecStart=/usr/local/bin/startup.sh
+    ExecStart=/usr/local/bin/powertop_tuning.sh
     ExecStop=exit
 
     [Install]
