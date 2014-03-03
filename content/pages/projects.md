@@ -1,4 +1,4 @@
-Title: cat projects.md
+Title: Projects
 
 * [hr](https://github.com/LuRsT/hr)
 * [Pendium](https://github.com/LuRsT/Pendium)

@@ -5,7 +5,9 @@
 {% block content %}
     <header>
         <h2>
-            $ cat posts/<a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.slug }}.html</a>
+            <a href="{{ SITEURL }}/{{ article.url }}" id="page-title">
+                {{ article.title }}
+            </a>
         </h2>
         {% if not HIDE_DATE %}
             <time datetime="{{ article.date.isoformat() }}">
