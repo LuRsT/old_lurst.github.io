@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <title>Lumbercoder : Debugging</title>
+
+    <link
+        rel="stylesheet"
+        href="http://lumbercoder.com/theme/css/kraken.css"
+        type="text/css"
+    />
+    <link
+        rel="stylesheet"
+        href="http://lumbercoder.com/theme/css/main.css"
+        type="text/css"
+    />
+    <link
+        href="http://lumbercoder.com/"
+        type="application/atom+xml"
+        rel="alternate"
+        title="Lumbercoder ATOM Feed"
+    />
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <article class="container">
+        <h1>
+            <a href="http://lumbercoder.com/">/home/Lumbercoder</a>
+        </h1>
+
+        <a class="btn btn-green" href="http://lumbercoder.com/">Home</a>
+        <a class="btn btn-green" href="http://lumbercoder.com/archives.html">Posts</a>
+
+
+            <a class="btn btn-green" href="http://lumbercoder.com/pages/projects.html">
+                Projects
+            </a>
+
+        <hr />
+
+    <header>
+        <h2>
+            <a href="http://lumbercoder.com/debugging.html" id="page-title">
+                Debugging
+            </a>
+        </h2>
+            <time datetime="2014-04-04T00:00:00">
+                Fri 04 April 2014
+            </time>
+    </header>
+    <article>
+        <p><strong>This is more of a wiki page to help me than a normal blog post</strong></p>
+<blockquote>
+<p>Debugging is twice as hard as writing the code in the first place. Therefore,
+if you write the code as cleverly as possible, you are, by definition, not
+smart enough to debug it.
+--<em>Brian Kernighan</em></p>
+</blockquote>
+<h2>Getting the most out of a bug</h2>
+<p>When you find a bug, you have an oportunity to learn more about:</p>
+<ul>
+<li>The program you are working on</li>
+<li>The type of mistakes that you make</li>
+<li>How to solve problems</li>
+<li>How to fix bugs</li>
+</ul>
+<p>Always assume that the bug is your fault, that will help you identify the bug
+faster, also a lot less embarrassment from your peers once they find out that
+the error that you said was the compiler/colleague/luck/weather's fault was
+actually just you forgetting a <code>;</code> in the end of a line.</p>
+<h2>Finding the bug</h2>
+<ul>
+<li>Try to reproduce the the bug using different ways and tringulating them, so
+that you can get a good understand of where it is and what it affects</li>
+<li>Use a debugger</li>
+<li>The old print statements to know what parts are being executing and with what
+values is always good is you don't have a good debugger</li>
+<li>Talk to someone about it, AKA Rubber duck debugging</li>
+</ul>
+<h2>Fixing the bug</h2>
+<ul>
+<li>Understand the problem</li>
+<li>Understand the problem within the program</li>
+<li>Confirm the diagnosis</li>
+<li>Fix the problem, not the symptom</li>
+<li>Before you change a piece of code, think about why you're going to change,
+don\'t do Voodoo Programming</li>
+<li>Make 1(one) change at a time</li>
+<li>Add a new test for the bug</li>
+<li>Is possible that the bug is somewhere else?</li>
+</ul>
+<h2>Other notes</h2>
+<ul>
+<li>Set your compiler (or <code>lint</code> if your using a dynamic language) to the be the
+pickiest possible.</li>
+<li>Warnings should be treated as errors.</li>
+</ul>
+    </article>
+    </article>
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5550586-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+
+    <script src="http://lumbercoder.com/theme/js/kraken.js"></script>
+</body>
+</html>

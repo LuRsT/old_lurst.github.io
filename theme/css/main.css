@@ -103,7 +103,7 @@ time {
     font-size: 60%;
 }
 
-ol, ul {
+.social-icons ul {
     list-style: none;
     margin: 0;
     padding: 0;

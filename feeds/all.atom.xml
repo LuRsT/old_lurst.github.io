@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Lumbercoder</title><link href="http://lumbercoder.com/" rel="alternate"></link><link href="http://lumbercoder.com/feeds/all.atom.xml" rel="self"></link><id>http://lumbercoder.com/</id><updated>2014-03-02T00:00:00+00:00</updated><entry><title>How to improve battery life on Arch linux</title><link href="http://lumbercoder.com/how-to-improve-battery-life-on-arch-linux.html" rel="alternate"></link><updated>2014-03-02T00:00:00+00:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2014-03-02:how-to-improve-battery-life-on-arch-linux.html</id><summary type="html">&lt;p&gt;Today I decided to make my laptop's battery last a bit more, so I looked for a
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Lumbercoder</title><link href="http://lumbercoder.com/" rel="alternate"></link><link href="http://lumbercoder.com/feeds/all.atom.xml" rel="self"></link><id>http://lumbercoder.com/</id><updated>2014-04-04T00:00:00+01:00</updated><entry><title>Debugging</title><link href="http://lumbercoder.com/debugging.html" rel="alternate"></link><updated>2014-04-04T00:00:00+01:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2014-04-04:debugging.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;This is more of a wiki page to help me than a normal blog post&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Debugging is twice as hard as writing the code in the first place. Therefore,
+if you write the code as cleverly as possible, you are, by definition, not
+smart enough to debug it.
+--&lt;em&gt;Brian Kernighan&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Getting the most out of a bug&lt;/h2&gt;
+&lt;p&gt;When you find a bug, you have an oportunity to learn more about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The program you are working on&lt;/li&gt;
+&lt;li&gt;The type of mistakes that you make&lt;/li&gt;
+&lt;li&gt;How to solve problems&lt;/li&gt;
+&lt;li&gt;How to fix bugs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Always assume that the bug is your fault, that will help you identify the bug
+faster, also a lot less embarrassment from your peers once they find out that
+the error that you said was the compiler/colleague/luck/weather's fault was
+actually just you forgetting a &lt;code&gt;;&lt;/code&gt; in the end of a line.&lt;/p&gt;
+&lt;h2&gt;Finding the bug&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Try to reproduce the the bug using different ways and tringulating them, so
+that you can get a good understand of where it is and what it affects&lt;/li&gt;
+&lt;li&gt;Use a debugger&lt;/li&gt;
+&lt;li&gt;The old print statements to know what parts are being executing and with what
+values is always good is you don't have a good debugger&lt;/li&gt;
+&lt;li&gt;Talk to someone about it, AKA Rubber duck debugging&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Fixing the bug&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Understand the problem&lt;/li&gt;
+&lt;li&gt;Understand the problem within the program&lt;/li&gt;
+&lt;li&gt;Confirm the diagnosis&lt;/li&gt;
+&lt;li&gt;Fix the problem, not the symptom&lt;/li&gt;
+&lt;li&gt;Before you change a piece of code, think about why you're going to change,
+don\'t do Voodoo Programming&lt;/li&gt;
+&lt;li&gt;Make 1(one) change at a time&lt;/li&gt;
+&lt;li&gt;Add a new test for the bug&lt;/li&gt;
+&lt;li&gt;Is possible that the bug is somewhere else?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Other notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Set your compiler (or &lt;code&gt;lint&lt;/code&gt; if your using a dynamic language) to the be the
+pickiest possible.&lt;/li&gt;
+&lt;li&gt;Warnings should be treated as errors.&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>How to improve battery life on Arch linux</title><link href="http://lumbercoder.com/how-to-improve-battery-life-on-arch-linux.html" rel="alternate"></link><updated>2014-03-02T00:00:00+00:00</updated><author><name>Gil Goncalves</name></author><id>tag:lumbercoder.com,2014-03-02:how-to-improve-battery-life-on-arch-linux.html</id><summary type="html">&lt;p&gt;Today I decided to make my laptop's battery last a bit more, so I looked for a
 way to do it, since I had to fiddle a bit a look multiple sources, I decided to
 create a blog post to rule them all.&lt;/p&gt;
 &lt;p&gt;So, this will be the instructions on how to improve the battery life on an Arch
