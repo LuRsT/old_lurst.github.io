@@ -62,6 +62,21 @@
 
 /* END ICOMOON */
 
+@font-face {
+    font-family: 'ClearSans';
+    src:url('fonts/ClearSans-Regular.eot');
+    src:url('fonts/ClearSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/ClearSans-Regular.woff') format('woff'),
+    url('fonts/ClearSans-Regular.ttf') format('truetype'),
+    url('fonts/ClearSans-Regular.svg#ClearSans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "ClearSans", sans;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -108,84 +123,3 @@ time {
     margin: 0;
     padding: 0;
 }
-
-/*
-body {
-    font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 14px;
-    color: #0f0;
-    background: #1a1a1a;
-    margin: 60px 14px 0 64px;
-    line-height: 30px;
-    max-width: 40em;
-}
-
-h1 {
-    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-}
-
-h2 {
-    font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-}
-
-h3 {
-    margin: 0;
-    font-size: 1em;
-    padding: 0;
-}
-
-h4 { }
-
-
-
-a {
-    color: green;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-body {
-    font-family: "ff-tisa-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
-    font-size: 18px;
-    line-height: 1;
-    color: #0f0;
-    background: #1a1a1a;
-}
-
-li {
-    margin: 0;
-}
-
-li:after {
-    content: '━';
-    float: left;
-    margin-right: 5px;
-}
-
-li:before {
-    content: '┣';
-    float: left;
-}
-
-li:first-child:before {
-    content: '┏';
-}
-
-li:last-child:before {
-    content: '┗';
-}
-
-hr {
-    background-color: green;
-    border: 0px;
-    margin-top:  20px;
-}
-
-code {
-    font-size: 14px;
-}
-*/
