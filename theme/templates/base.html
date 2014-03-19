@@ -6,6 +6,11 @@
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
 
     <link
+        rel="shortcut icon"
+        href="{{ SITEURL }}/theme/img/lumbercoder-16.png"
+        type="text/css"
+    />
+    <link
         rel="stylesheet"
         href="{{ SITEURL }}/theme/css/kraken.css"
         type="text/css"
@@ -38,7 +43,7 @@
 <body>
     <article class="container">
         <h1>
-            <a href="{{ SITEURL }}/">/home/{{ SITENAME }}</a>
+            <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/theme/img/lumbercoder-64.png" width="24" height="24">/home/{{ SITENAME }}</a>
         </h1>
 
         <a class="btn btn-green" href="{{ SITEURL }}/">Home</a>
