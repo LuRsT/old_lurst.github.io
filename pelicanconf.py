@@ -33,6 +33,9 @@ DEFAULT_PAGINATION = 10
 STATIC_PATHS = ['extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
-THEME = "theme"
+THEME = 'theme'
 
-GOOGLE_ANALYTICS = "UA-5550586-7"
+GOOGLE_ANALYTICS = 'UA-5550586-7'
+
+
+GITHUB_URL = 'https://github.com/LuRsT/lurst.github.io'
