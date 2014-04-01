@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
+    </title>
+    {% if page.meta_description %}
+        <meta
+            name="description"
+            content="{{ page.content | split:"<!-- more -->" | first | strip_html }}"
+        />
+    {% else %}
+        <meta
+            name="description"
+            content="{{ site.description }}"
+        />
+    {% endif %}
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/normalize.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/pygments.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/style.css" />
+</head>
+<body>
+    <div class="wrapper">
+
+        <header class="header">
+            <h1>{{ site.title }}</h1>
+        </header>
+
+        <nav class="nav">
+            {% for page in site.pages %}
+                <a
+                    href="{{ page.url }}"
+                    {% if page.url == page.url %}
+                        class="active"
+                    {% endif %}
+                >
+                    {{ page.title }}
+                </a>
+            {% endfor %}
+        </nav>
+
+        <section class="content">
+            <div class="inner">
+                {{ content }}
+            </div>
+        </section>
+
+        <footer class="footer">
+            &copy; That Portuguese guy
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+baseurl: /
+highlighter: pygments
+markdown: redcarpet
+description: "This is the blog of the Lumbercoder"
+title: Lumbercoder
+encoding: UTF-8
