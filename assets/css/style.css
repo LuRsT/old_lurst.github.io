@@ -1,0 +1,156 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-size: 18px;
+    color: #4a4a4a;
+    overflow: hidden;
+    overflow-y: auto;
+    font-family: 'Roboto Slab', serif;
+}
+
+a, a:link, a:visited {
+    text-decoration: underline;
+    color: #aaa;
+}
+
+a:active, a:hover {
+    color: #73a325;
+}
+
+.wrapper {
+    width: 50%;
+    margin: 0 25%;
+}
+
+@media all and (max-width: 1200px) {
+    .wrapper {
+        width: 80%;
+        margin: 0 10%;
+    }
+}
+
+@media all and (max-width: 960px) {
+    .wrapper {
+        width: 90%;
+        margin: 0 5%;
+    }
+}
+
+h1, h2, h3, h4, h5 {
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.1;
+    word-wrap: break-word;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.3rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4, h5 {
+    padding-bottom: .5em;
+    margin-bottom: .5em;
+    border-bottom: 1px solid #eee;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.header,
+.nav,
+.footer {
+    text-align: center;
+    padding: 40px 80%;
+    margin: 0 -80%;
+}
+
+.header {
+    background-color: #fafafa;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.nav {
+    background-color: #f0f0f0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.content {
+    padding: 40px 0;
+    min-height: 500px;
+}
+
+.footer {
+    background-color: #fafafa;
+    color: #888;
+}
+
+.post-title {
+    text-align: left;
+}
+
+.post-title a {
+    text-decoration: none;
+}
+
+.post-content { }
+
+p, li {
+    line-height: 1.5;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: .01rem;
+}
+
+pre {
+    display: block;
+    padding: 1em;
+    margin: 0 0 1em;
+    line-height: 1.3em;
+    font-size: 1.2rem;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.post-footer {
+    overflow: auto;
+}
+
+.post-footer a {
+    max-width: 50%;
+}
+
+.post-footer .next {
+    float: right;
+}
+
+.post-footer .previous {
+    float: left;
+}

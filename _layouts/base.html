@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
+    </title>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
+
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}assets/img/lumbercoder-16.png" />
+
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/normalize.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/pygments.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/style.css" />
+</head>
+<body>
+    <div class="wrapper">
+
+        <header class="header">
+            <h1><img src="{{ site.baseurl }}assets/img/lumbercoder-64.png" />{{ site.title }}</h1>
+        </header>
+
+        <nav class="nav">
+            {% assign sorted_pages = site.pages | sort:"name" %}
+            {% for site_page in sorted_pages %}
+                <a
+                    href="{{ site_page.url }}"
+                    {% if site_page.url == page.url %}
+                        class="active"
+                    {% endif %}
+                >
+                    {{ site_page.title }}
+                </a>
+            {% endfor %}
+        </nav>
+
+        <section class="content">
+            <div class="inner">
+                {{ content }}
+            </div>
+        </section>
+
+        <footer class="footer">
+            &copy; Gil Gonçalves 2014
+        </footer>
+    </div>
+
+    {% include google_analytics.html %}
+
+    {% include github_ribbon.html %}
+</body>
+</html>
