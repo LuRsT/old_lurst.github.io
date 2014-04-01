@@ -4,15 +4,24 @@ layout: base
 permalink: /
 ---
 
+<h2>Welcome,</h2>
+
+<p>
+    I'm a Python developer living in Oxford, UK, here you can read my texts,
+    mostly about software and technology. If you want to know more about me,
+    click on "About".
+</p>
+
 <h2>Latest Posts</h2>
+
 {% if site.posts.size > 0 %}
     {% for post in site.posts | limit:3 %}
         <div class="post-title">
-            <h3>
+            <h4>
                 <a href="{{ post.url }}">
                     {{ post.title }}
                 </a>
-            </h3>
+            </h4>
         </div>
     {% endfor %}
 {% else %}

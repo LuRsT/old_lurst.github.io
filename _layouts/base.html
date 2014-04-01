@@ -5,39 +5,32 @@
     <title>
         {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
     </title>
-    {% if page.meta_description %}
-        <meta
-            name="description"
-            content="{{ page.content | split:"<!-- more -->" | first | strip_html }}"
-        />
-    {% else %}
-        <meta
-            name="description"
-            content="{{ site.description }}"
-        />
-    {% endif %}
 
     <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}assets/normalize.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}assets/pygments.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}assets/style.css" />
+
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}assets/img/lumbercoder-16.png" />
+
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/normalize.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/pygments.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/style.css" />
 </head>
 <body>
     <div class="wrapper">
 
         <header class="header">
-            <h1>{{ site.title }}</h1>
+            <h1><img src="{{ site.baseurl }}assets/img/lumbercoder-64.png" />{{ site.title }}</h1>
         </header>
 
         <nav class="nav">
-            {% for page in site.pages %}
+            {% assign sorted_pages = site.pages | sort:"name" %}
+            {% for site_page in sorted_pages %}
                 <a
-                    href="{{ page.url }}"
-                    {% if page.url == page.url %}
+                    href="{{ site_page.url }}"
+                    {% if site_page.url == page.url %}
                         class="active"
                     {% endif %}
                 >
-                    {{ page.title }}
+                    {{ site_page.title }}
                 </a>
             {% endfor %}
         </nav>
@@ -49,8 +42,12 @@
         </section>
 
         <footer class="footer">
-            &copy; That Portuguese guy
+            &copy; Gil Gonçalves 2014
         </footer>
     </div>
+
+    {% include google_analytics.html %}
+
+    {% include github_ribbon.html %}
 </body>
 </html>
