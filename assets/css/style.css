@@ -11,8 +11,9 @@ body {
 }
 
 a, a:link, a:visited {
-    text-decoration: underline;
+    text-decoration: none;
     color: #aaa;
+    font-weight: bold;
 }
 
 a:active, a:hover {
