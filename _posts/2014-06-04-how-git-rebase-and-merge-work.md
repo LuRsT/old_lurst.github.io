@@ -8,7 +8,7 @@ instructions:
 
 ![master on top of stable](http://i.imgur.com/zW2Xax9.png)
 
-And since there was some confusion wether we should keep rebasing or merging,
+And since there was some confusion whether we should keep rebasing or merging,
 here I am going to demonstrate how git handles merging or rebasing two branches
 with commits intertwined.
 
