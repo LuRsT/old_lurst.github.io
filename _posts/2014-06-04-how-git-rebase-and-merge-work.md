@@ -3,11 +3,14 @@ title: How does git rebase and merge work
 layout: post
 ---
 
-Today I was tasked with rebasing our project's git repo, and since there was
-some confusion wether we should keep rebasing or merging, here is a very simple
-example of how they look like in the tree:
+Today I was tasked with rebasing our project's git repo, here were the
+instructions:
 
-![These where the instructions](http://i.imgur.com/zW2Xax9.png)
+![master on top of stable](http://i.imgur.com/zW2Xax9.png)
+
+And since there was some confusion wether we should keep rebasing or merging,
+here I am going to demonstrate how git handles merging or rebasing two branches
+with commits intertwined.
 
 I created a test repo and did the following steps:
 
