@@ -83,10 +83,14 @@ A very short talk to discuss some ways of publishing a python open source projec
 
 ### Naming Things
 
+A short talk on naming things in software development.
+
+##### Where?
+
 * [Codebits 2014 (5min version)](https://codebits.eu)
 * [JSOxford + Python Oxford MegaMeetup#2 (15min version)](http://jsoxford.com/2014/mega-meetup-2/)
 
-A short talk on naming things in software development.
+##### Material
 
 * Slides: [Naming Things (5min)](/naming-things-5min)
 * Slides: [Naming Things (15min)](/naming-things-15min)
