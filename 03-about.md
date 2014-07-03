@@ -62,7 +62,7 @@ A 5min talk where I showcase some of vim's features.
 
 ##### Material
 
-* Slides: [https://github.com/LuRsT/vim_5min_presentation](https://github.com/LuRsT/vim_5min_presentation)
+* Slides: [https://github.com/LuRsT/vim\_5min\_presentation](https://github.com/LuRsT/vim_5min_presentation)
 * Video (Portuguese): [https://www.youtube.com/watch?v=AnYE-McpatU](https://www.youtube.com/watch?v=AnYE-McpatU)
 
 ---
@@ -77,5 +77,16 @@ A very short talk to discuss some ways of publishing a python open source projec
 
 ##### Material
 
-* Slides: [How_to_open_source_your_python_project.pdf](../downloads/How_to_open_source_your_python_project.pdf)
+* Slides: [How\_to\_open\_source\_your\_python\_project.pdf](../downloads/How_to_open_source_your_python_project.pdf)
 
+---
+
+### Naming Things
+
+* [Codebits 2014 (5min version)](https://codebits.eu)
+* [JSOxford + Python Oxford MegaMeetup#2 (15min version)](http://jsoxford.com/2014/mega-meetup-2/)
+
+A short talk on naming things in software development.
+
+* Slides: [Naming Things (5min)](/naming-things-5min)
+* Slides: [Naming Things (15min)](/naming-things-15min)
