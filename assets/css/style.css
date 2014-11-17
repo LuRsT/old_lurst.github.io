@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    font-size: 18px;
+    font-size: 24px;
     color: #4a4a4a;
     overflow: hidden;
     overflow-y: auto;
@@ -21,8 +21,8 @@ a:active, a:hover {
 }
 
 .wrapper {
-    width: 50%;
-    margin: 0 25%;
+    width: 60%;
+    margin: 0 20%;
 }
 
 @media all and (max-width: 1200px) {
@@ -135,7 +135,7 @@ pre {
     padding: 1em;
     margin: 0 0 1em;
     line-height: 1.3em;
-    font-size: .8rem;
+    font-size: 1rem;
     word-break: break-all;
     word-wrap: break-word;
     white-space: pre-wrap;
