@@ -156,3 +156,8 @@ pre {
 .post-footer .previous {
     float: left;
 }
+
+.comments-description {
+    font-size: .8rem;
+    font-style: italic;
+}
