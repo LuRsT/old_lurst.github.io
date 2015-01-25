@@ -4,7 +4,7 @@ layout: base
 permalink: /about/
 ---
 
-## $ whoami
+## About
 
 Hi, I'm Gil Gonçalves, I live in Oxford and code mostly Python stuff, but I do like bash,
 other open source languages and I also know some frontend stuff too.
