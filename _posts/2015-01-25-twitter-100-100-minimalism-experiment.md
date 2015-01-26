@@ -6,7 +6,7 @@ layout: post
 This weekend I had the idea to do a little minimalism experiment, I was
 browsing twitter and I noticed that I had a little over 120 people I follow
 and about 200 tweets (I had way more, but a few months ago I deleted most of
-them with tweetdelete.net). So I thought, why not remove them and restrict
+them with [tweetdelete.net](http://tweetdelete.net)). So I thought, why not remove them and restrict
 myself to 100 tweets and 100 people I follow (followees?).
 
 I'm not sure why I decided to do this or what I expected to get from this, but
