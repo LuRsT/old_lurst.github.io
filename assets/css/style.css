@@ -3,16 +3,20 @@ html, body {
 }
 
 body {
-    font-size: 24px;
-    color: #4a4a4a;
+    font-size: 20px;
+    color: #424242;
+    background-color: #fdfdfd;
     overflow: hidden;
     overflow-y: auto;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Lato', serif;
+
+    width: 60%;
+    margin: 0 20%;
 }
 
 a, a:link, a:visited {
     text-decoration: none;
-    color: #aaa;
+    color: #a0a0a0;
     font-weight: bold;
 }
 
@@ -20,20 +24,16 @@ a:active, a:hover {
     color: #73a325;
 }
 
-.wrapper {
-    width: 60%;
-    margin: 0 20%;
-}
 
 @media all and (max-width: 1200px) {
-    .wrapper {
+    body {
         width: 80%;
         margin: 0 10%;
     }
 }
 
 @media all and (max-width: 960px) {
-    .wrapper {
+    body {
         width: 90%;
         margin: 0 5%;
     }
@@ -62,7 +62,7 @@ h3 {
 h4, h5 {
     padding-bottom: .5em;
     margin-bottom: .5em;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 h4 {
@@ -82,16 +82,13 @@ h5 {
     margin: 0 -80%;
 }
 
-.header {
-    background-color: #fafafa;
-}
-
 .header h1 {
     margin: 0;
 }
 
 .nav {
-    background-color: #f0f0f0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -108,8 +105,7 @@ h5 {
 }
 
 .footer {
-    background-color: #fafafa;
-    color: #888;
+    border-top: 1px solid #f0f0f0;
     font-size: 0.6em;
 }
 
@@ -121,10 +117,8 @@ h5 {
     text-decoration: none;
 }
 
-.post-content { }
-
 p, li {
-    line-height: 1.5;
+    line-height: 30px;
     font-weight: 400;
     font-style: normal;
     letter-spacing: .01rem;
@@ -160,4 +154,10 @@ pre {
 .comments-description {
     font-size: .8rem;
     font-style: italic;
+}
+
+p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
