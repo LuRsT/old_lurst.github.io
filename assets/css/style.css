@@ -10,8 +10,9 @@ body {
     overflow-y: auto;
     font-family: 'Lato', serif;
 
-    width: 50%;
-    margin: 0 25%;
+    width: 98%;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 a, a:link, a:visited {
@@ -22,21 +23,6 @@ a, a:link, a:visited {
 
 a:active, a:hover {
     color: #73a325;
-}
-
-
-@media all and (max-width: 1200px) {
-    body {
-        width: 80%;
-        margin: 0 10%;
-    }
-}
-
-@media all and (max-width: 960px) {
-    body {
-        width: 90%;
-        margin: 0 5%;
-    }
 }
 
 h1, h2, h3, h4, h5 {
