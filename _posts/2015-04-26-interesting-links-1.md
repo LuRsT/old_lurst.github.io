@@ -4,18 +4,18 @@ layout: post
 ---
 
 This week I read about a nice [motivation hack](http://jamesclear.com/paper-clips)
-which consists of visualizing progress of good habits by moving paper clips from
-one jar to another, made me think about doing something similar but digital...
+which consists of visualizing the progress of good habits by moving paper clips
+from one jar to another, made me think about doing something similar but
+digital...
 
 I also found [this](http://thenextweb.com/lifehacks/2015/04/05/your-first-choice-is-rarely-the-optimal-choice-5-lessons-on-being-wrong/)
 amusing article on how we should stop worrying about whether what we're doing
 is a good thing or not since making a bad decision will probably lead us to
 growth.
 
-Another good article is [this one](http://wcm1.web.rice.edu/my-academic-book-in-plain-text.html)
-about how this book writer prefers to use plain text for writing his books
-than the typical tools that cause various different nightmares. Or, just
-more reasons for using minimalistic tools.
+Another good article is [this one](http://wcm1.web.rice.edu/my-academic-book-in-plain-text.html),
+it's about how this book writer prefers to use plain text for writing his books
+rather than the typical office tools that cause various different problems.
 
 Other random links that I read this week include:
 
