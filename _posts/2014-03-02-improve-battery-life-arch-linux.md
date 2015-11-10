@@ -19,7 +19,7 @@ First, you need to install powertop:
 
 Next, use it to create a report with it, like so:
 
-    sudo powertop -html
+    sudo powertop --html
 
 You will end up with a file called `tml.html` in your $HOME directory.
 
