@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Lumbercoder - Authors</title>
+        <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
 
+        {% block meta_tags_in_head %}
+        {% endblock meta_tags_in_head %}
 
-        <meta name="robots" content="index,follow">
+        <meta name="robots" content="{% block robots %}index,follow{% endblock %}">
 
-        <link rel="stylesheet" href="http://lumbercoder.com/theme/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" type="text/css" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,11 +18,10 @@
     </head>
 
     <body id="index" class="home">
-        <h7><a href="http://lumbercoder.com">Lumbercoder</a></h7>
+        <h7><a href="{{ SITEURL }}">{{ SITENAME }}</a></h7>
 
-    <h1>Authors on Lumbercoder</h1>
-
-    <ul>    </ul>
+        {% block content %}
+        {% endblock %}
 
         <footer>
             <hr />
