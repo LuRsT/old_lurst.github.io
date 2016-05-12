@@ -20,9 +20,11 @@ AUTHOR_FEED_RSS = None
 
 STATIC_PATHS = [
     'extras/htaccess',
+    'extras/CNAME',
 ]
 EXTRA_PATH_METADATA = {
     'extras/htaccess': {'path': '.htaccess'},
+    'extras/CNAME': {'path': 'CNAME'},
 }
 
 DEFAULT_PAGINATION = False
