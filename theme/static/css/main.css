@@ -311,9 +311,6 @@ a {
 a:hover {
   color: #222;
 }
-a:visited {
-  color: #888;
-}
 a:visited:hover {
   color: #222;
 }
