@@ -1,8 +1,0 @@
-baseurl: /
-highlighter: pygments
-markdown: redcarpet
-description: "Snippets and thoughts from a web developer"
-title: Lumbercoder
-encoding: UTF-8
-google_analytics: "UA-5550586-7"
-github_url: "https://github.com/LuRsT/lurst.github.io/"
