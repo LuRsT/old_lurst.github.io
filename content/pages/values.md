@@ -5,4 +5,4 @@ following, others I'm trying to follow, this page is just a reminder for me:
 
 - Be kind
 - Don't judge
-- Help others
+- Be generous
