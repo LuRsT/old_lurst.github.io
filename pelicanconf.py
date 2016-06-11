@@ -22,6 +22,7 @@ STATIC_PATHS = [
     'extras/htaccess',
     'extras/CNAME',
 ]
+
 EXTRA_PATH_METADATA = {
     'extras/htaccess': {'path': '.htaccess'},
     'extras/CNAME': {'path': 'CNAME'},
@@ -30,6 +31,8 @@ EXTRA_PATH_METADATA = {
 DEFAULT_PAGINATION = False
 
 THEME = 'theme'
+
+MD_EXTENSIONS = (['toc'])
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
