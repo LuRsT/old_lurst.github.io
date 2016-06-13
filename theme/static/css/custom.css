@@ -3,7 +3,7 @@ html {
 }
 
 h7 {
-    padding: 10px;
+    padding: 0.5rem;
     font-weight: bold;
 }
 
@@ -12,9 +12,13 @@ section h1 {
 }
 
 .home {
-    padding: 10px;
+    padding: 0.5rem;
 }
 
 code {
     margin: 0rem;
+}
+
+ul {
+    margin-bottom: 0rem;
 }
