@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>How I write bash</title>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+
+        <meta name="category" content="pages" />
+        <meta name="description" content="This is a short guide to help me write bash scripts since I usually tend to review my previous code in order to remember how I write Bash. Template file Conditions Arithmetic Conditions Template file This is what I usually start every bash script with: #!/bin/bash set -o errexit ..." />
+        <meta name="author" content="Gil" />
+        <meta name="copyright" content="Gil" />
+
+        <meta name="robots" content="index,follow">
+
+        <link rel="stylesheet" href="http://lumbercoder.com/theme/css/main.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+
+    <body id="index" class="home">
+        <h7 class="site-header">
+            <a href="http://lumbercoder.com">Lumbercoder</a>
+        </h7>
+
+    <section id="content" class="body">
+        <h1 class="entry-title">How I write bash</h1>
+
+        <p>This is a short guide to help me write bash scripts since I usually tend to
+review my previous code in order to remember how I write Bash.</p>
+<div class="toc">
+<ul>
+<li><a href="#template-file">Template file</a></li>
+<li><a href="#conditions">Conditions</a><ul>
+<li><a href="#arithmetic-conditions">Arithmetic Conditions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="template-file">Template file</h3>
+<p>This is what I usually start every bash script with:</p>
+<pre><code>#!/bin/bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+</code></pre>
+<p>The shebang subject has been <a href="https://github.com/LuRsT/hr/commit/61b938bb4f622c42eba3f3aa31e233be870408c1">discussed</a>
+about quite a bit.</p>
+<p>The others are flags that make errors easier to debug.</p>
+<h3 id="conditions">Conditions</h3>
+<h4 id="arithmetic-conditions">Arithmetic Conditions</h4>
+<pre><code>if (( variable &lt;= 0 )); then
+    echo "HI"
+fi
+</code></pre>
+    </section>
+
+        <footer>
+            <hr />
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                <img
+                    alt="Creative Commons Licence"
+                    style="border-width:0"
+                    src="http://i.creativecommons.org/l/by/4.0/80x15.png"
+                >
+            </a>
+        </footer>
+
+    </body>
+</html>
