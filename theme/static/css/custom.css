@@ -14,3 +14,7 @@ section h1 {
 .home {
     padding: 10px;
 }
+
+code {
+    margin: 0rem;
+}
