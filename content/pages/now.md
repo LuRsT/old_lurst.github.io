@@ -4,12 +4,6 @@ Title: Now
 
 - Writing for this blog
 - Coding on personal and Open Source projects
-- Doing Keto and Intermittent Fasting(17/7)
-- [Learning TDD](/tdd)
+- Doing Keto
 
-### What I'm reading
-
-- [TDD with Python](http://www.obeythetestinggoat.com/)
-- [The Passionate Programmer](https://pragprog.com/book/cfcar2/the-passionate-programmer)
-
-Last update: 10th June 2016
+Last update: 17th September 2016
