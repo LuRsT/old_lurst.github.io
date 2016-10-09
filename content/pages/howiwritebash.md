@@ -23,9 +23,31 @@ The others are flags that make errors easier to debug.
 
 ### Conditions
 
-#### Arithmetic Conditions
+#### Arithmetic
 
     if (( variable <= 0 )); then
         echo "HI"
     fi
 
+#### Strings
+
+Check if string exists
+
+    if [[ -n ${variable} ]]; then
+        echo "HI"
+    fi
+
+
+### Loops
+
+    for file in $(ls); do
+        echo $file
+    done
+
+.
+
+    STRINGS='one two'
+
+    for STRING in $STRINGS; do
+        echo $STRING
+    done
