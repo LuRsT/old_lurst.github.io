@@ -4,6 +4,5 @@ Title: Now
 
 - Writing for this blog
 - Coding on personal and Open Source projects
-- Doing Keto
 
-Last update: 17th September 2016
+Last update: 9th October 2016
