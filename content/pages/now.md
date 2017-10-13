@@ -2,7 +2,7 @@ Title: Now
 
 ### What I'm doing
 
-- Writing for this blog
-- Coding on personal and Open Source projects
+- Reading The Manager's Path and The Linux Programming Interface
 
-Last update: 9th October 2016
+
+Last update: 13th October 2017
