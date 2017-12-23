@@ -2,7 +2,8 @@ Title: Now
 
 ### What I'm doing
 
-- Reading The Manager's Path and The Linux Programming Interface
+- Creating Kata repos in my github and doing them
+- Basic maintenance on my github repos
 
 
-Last update: 13th October 2017
+Last update: 23rd December 2017

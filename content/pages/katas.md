@@ -19,3 +19,7 @@ Note: My solutions are not necessarily the best!
 
 - [Trivia](https://github.com/LuRsT/trivia_kata)
 - [Gilded Rose](https://github.com/LuRsT/gilded_rose_kata)
+
+In the works:
+
+- Robot Kata
